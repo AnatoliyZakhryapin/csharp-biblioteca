@@ -28,5 +28,17 @@ namespace csharp_biblioteca
             get { return durata; }
             set { durata = value; }
         }
+
+
+        // ---------
+        // Metodi
+        // ----------
+
+        public override void StampaInfo()
+        {
+            base.StampaInfo();
+            Console.WriteLine($"durata: {durata}");
+            Console.WriteLine("Tipo: DVD");
+        }
     }
 }

@@ -29,5 +29,15 @@ namespace csharp_biblioteca
             set { pagine = value; }
         }
 
+        // ---------
+        // Metodi
+        // ----------
+
+        public override void StampaInfo()
+        {
+            base.StampaInfo();
+            Console.WriteLine($"Pagine: {pagine}");
+            Console.WriteLine("Tipo: LIBRO");
+        }
     }
 }
