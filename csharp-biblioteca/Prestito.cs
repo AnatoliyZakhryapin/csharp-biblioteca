@@ -8,7 +8,7 @@ namespace csharp_biblioteca
 {
     internal class Prestito
     {
-        private Person person;
+        private Utente utente;
         private Documento documento;
         private DateTime dal;
         private DateTime all;
@@ -17,9 +17,9 @@ namespace csharp_biblioteca
         // Costruttore
         // -----------
 
-        public Prestito(Person person, Documento documento, DateTime dal, DateTime all)
+        public Prestito(Utente utente, Documento documento, DateTime dal, DateTime all)
         {
-            this.person = person;
+            this.utente = utente;
             this.documento = documento;
             this.dal = dal;
             this.all = all;
@@ -29,10 +29,10 @@ namespace csharp_biblioteca
         // Get e Set
         // ----------
 
-        public Person Person
+        public Utente Utente
         {
-            get { return person; }
-            set { person = value; }
+            get { return utente; }
+            set { utente = value; }
         }
 
         public Documento Documento
