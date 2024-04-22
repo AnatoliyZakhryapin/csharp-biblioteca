@@ -9,8 +9,7 @@ namespace csharp_biblioteca
     internal class Utente
     {
         private string codice;
-        private string nome;
-        private string cognome;
+        private Person person;
         private string email;
         private string password;
         private string recapito;
@@ -18,11 +17,10 @@ namespace csharp_biblioteca
         // -----------
         // Costruttore
         // -----------
-        public Utente (string codice, string nome, string cognome, string email, string password, string recapito)
+        public Utente (string codice, Person person, string email, string password, string recapito)
         {
             this.codice = codice;
-            this.nome = nome;
-            this.cognome = cognome;
+            this.person = person;
             this.email = email;
             this.password = password;
             this.recapito = recapito;
@@ -37,16 +35,10 @@ namespace csharp_biblioteca
             set { this.codice = value; }
         }
 
-        public string Nome
+        public Person Persona
         {
-            get { return nome; }
-            set { this.nome = value; }
-        }
-
-        public string Cognome
-        {
-            get { return cognome; }
-            set { this.cognome = value; }
+            get { return person; }
+            set { this.person = value; }
         }
 
         public string Email
