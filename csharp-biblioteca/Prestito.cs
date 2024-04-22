@@ -24,5 +24,33 @@ namespace csharp_biblioteca
             this.dal = dal;
             this.all = all;
         }
+
+        // ---------
+        // Get e Set
+        // ----------
+
+        public Person Person
+        {
+            get { return person; }
+            set { person = value; }
+        }
+
+        public Documento Documento
+        {
+            get { return documento; }
+            set { documento = value; }
+        }
+
+        public DateTime Dal
+        {
+            get { return dal; }
+            set { dal = value; }
+        }
+
+        public DateTime All
+        {
+            get { return all; }
+            set { all = value; }
+        }
     }
 }
