@@ -36,5 +36,18 @@ namespace csharp_biblioteca
             get { return this.cognome; }
             set { this.cognome = value; }
         }
+
+        // ---------
+        // Metodi
+        // ----------
+
+        public virtual void StampaInfo()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Stampa informazione della persona: ");
+            Console.WriteLine($"Nome: {nome}");
+            Console.WriteLine($"cognome: {cognome}");
+        }
+
     }
 }
