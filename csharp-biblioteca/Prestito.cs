@@ -63,7 +63,7 @@ namespace csharp_biblioteca
             Console.WriteLine();
             Console.WriteLine("Stampa informazione del prestito.");
             Console.WriteLine();
-            Console.WriteLine("Prestato da:");
+            Console.WriteLine($"Prestato dal {dal} al {all}");
             Utente.StampaInfo();
             Console.WriteLine();
             Console.WriteLine("Documento prestato:");
