@@ -68,6 +68,22 @@ namespace csharp_biblioteca
             get { return autore; }
             set { autore = value; }
         }
+
+        // ---------
+        // Metodi
+        // ----------
+
+        public virtual void StampaInfo()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Stampa informazione del documento:");
+            Console.WriteLine($"Codice: {codice}");
+            Console.WriteLine($"Titolo: {titolo}");
+            Console.WriteLine($"Anno: {anno}");
+            Console.WriteLine($"Settore: {settore}");
+            Console.WriteLine($"Scaffale: {scaffale}");
+            Console.WriteLine($"Autore: {Autore.Nome} {Autore.Cognome}");
+        }
     }
 
 
