@@ -8,13 +8,13 @@ namespace csharp_biblioteca
 {
     internal class Dvd : Documento
     {
-        private int durata;
+        private TimeSpan durata;
 
         // -----------
         // Costruttore
         // -----------
 
-        public Dvd(int durata, string codice, string titolo, int anno, string settore, string scaffale, Person autore) : base(codice, titolo, anno, settore, scaffale, autore)
+        public Dvd(TimeSpan durata, string codice, string titolo, int anno, string settore, string scaffale, Person autore) : base(codice, titolo, anno, settore, scaffale, autore)
         {
             this.durata = durata;
         }
@@ -23,7 +23,7 @@ namespace csharp_biblioteca
         // Get e Set
         // ----------
 
-        public int Durata
+        public TimeSpan Durata
         {
             get { return durata; }
             set { durata = value; }
