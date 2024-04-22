@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace csharp_biblioteca
+{
+    internal class Libro : Documento
+    {
+        private int pagine;
+
+        // -----------
+        // Costruttore
+        // -----------
+
+        public Libro(int pagine, string codice, string titolo, int anno, string settore, string scaffale, Person autore) : base(codice, titolo, anno, settore, scaffale, autore)
+        { 
+           this.pagine = pagine; 
+        }
+
+        // ---------
+        // Get e Set
+        // ----------
+
+        public int Pagine
+        {
+            get { return pagine; }
+            set { pagine = value; }
+        }
+
+    }
+}
