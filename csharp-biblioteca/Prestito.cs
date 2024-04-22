@@ -52,5 +52,23 @@ namespace csharp_biblioteca
             get { return all; }
             set { all = value; }
         }
+
+
+        // ---------
+        // Metodi
+        // ----------
+
+        public void StampaInfo()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Stampa informazione del prestito.");
+            Console.WriteLine();
+            Console.WriteLine("Prestato da:");
+            Utente.StampaInfo();
+            Console.WriteLine();
+            Console.WriteLine("Documento prestato:");
+            Documento.StampaInfo();
+
+        }
     }
 }
