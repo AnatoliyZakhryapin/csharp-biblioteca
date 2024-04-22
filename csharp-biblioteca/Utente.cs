@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Utente
+    internal class Utente : Person
     {
-        private string codice;
-        private Person person;
         private string email;
         private string password;
         private string recapito;
@@ -17,10 +15,8 @@ namespace csharp_biblioteca
         // -----------
         // Costruttore
         // -----------
-        public Utente (string codice, Person person, string email, string password, string recapito)
+        public Utente (string nome, string cognome, string email, string password, string recapito) : base (nome, cognome)
         {
-            this.codice = codice;
-            this.person = person;
             this.email = email;
             this.password = password;
             this.recapito = recapito;
@@ -29,17 +25,6 @@ namespace csharp_biblioteca
         // ---------
         // Get e Set
         // ----------
-        public string Codice
-        {
-            get { return codice; }
-            set { this.codice = value; }
-        }
-
-        public Person Persona
-        {
-            get { return person; }
-            set { this.person = value; }
-        }
 
         public string Email
         {
@@ -57,6 +42,21 @@ namespace csharp_biblioteca
         {
             get { return recapito; }
             set { this.recapito = value;}
+        }
+
+
+        // ---------
+        // Metodi
+        // ----------
+
+        public override void StampaInfo()
+        {
+            base.StampaInfo();
+            Console.WriteLine();
+            Console.WriteLine("Stampa informazione dell'utente:");
+            Console.WriteLine($"Email: {email}");
+            //Console.WriteLine($"Password: {password}");
+            Console.WriteLine($"Recapito: {recapito}");
         }
     }
 }
