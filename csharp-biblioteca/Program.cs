@@ -4,10 +4,11 @@ namespace csharp_biblioteca
 {
     internal class Program
     {
+        public static Biblioteca biblioteca = new Biblioteca();
         static void Main(string[] args)
         {
      
-            Biblioteca biblioteca = new Biblioteca();
+            //Biblioteca biblioteca = new Biblioteca();
 
             biblioteca.CreareFakeDatiUtenti(10);
             biblioteca.CreareFakeDatiLibri(10);
@@ -247,9 +248,6 @@ namespace csharp_biblioteca
             }
             else
             {
-                Console.WriteLine("Documento trovato:");
-                documento.StampaInfo();
-
                 Console.WriteLine("Vuoi proseguire con prestito questo documento? (S/N)");
                 string risposta = Console.ReadLine().ToUpper();
                 if (risposta == "S")
@@ -380,10 +378,13 @@ namespace csharp_biblioteca
                 return null;
             }
 
-            biblioteca.AddDocumento(nuovoDocumento);
+            bool aggiuntoConSuccesso = biblioteca.AddDocumento(nuovoDocumento);
 
-            Console.WriteLine("Nuovo documento aggiunto:");
-            nuovoDocumento.StampaInfo();
+            if (aggiuntoConSuccesso)
+            {
+                Console.WriteLine("Nuovo documento aggiunto:");
+                nuovoDocumento.StampaInfo();
+            }
 
             return nuovoDocumento;
         }
