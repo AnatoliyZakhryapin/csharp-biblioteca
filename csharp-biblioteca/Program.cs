@@ -9,7 +9,7 @@ namespace csharp_biblioteca
      
             Biblioteca biblioteca = new Biblioteca();
 
-            biblioteca.AddUtente(new Utente("Anatoliy", "Zakhryapin", "anatoliy@gmail.com", "password", "+33333333333"));
+           
 
             biblioteca.CreareFakeDatiUtenti(10);
             biblioteca.CreareFakeDatiLibri(10);
@@ -20,8 +20,10 @@ namespace csharp_biblioteca
             biblioteca.AddDocumento(new Libro(200, "345", "Cuori di Atlantide", 2000, "aaaaaa bla bla", "A2", new Autore("nome2", "cognome2")));
             biblioteca.AddDocumento(new Dvd(TimeSpan.FromHours(2), "678", "Il padrino", 1972, "Film", "B456", new Autore("Francis Ford", "Coppola")));
 
-            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[0], biblioteca.Documenti[2], DateTime.Now, DateTime.Now.AddDays(14)));
-            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[0], biblioteca.Documenti[1], DateTime.Now, DateTime.Now.AddDays(14)));
+            biblioteca.AddUtente(new Utente("Anatoliy", "Zakhryapin", "anatoliy@gmail.com", "password", "+33333333333"));
+
+            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[10], biblioteca.Documenti[2], DateTime.Now, DateTime.Now.AddDays(14)));
+            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[10], biblioteca.Documenti[1], DateTime.Now, DateTime.Now.AddDays(14)));
 
             //biblioteca.CercaDocumento("123");
             //biblioteca.StampaListaPrestiti();
@@ -217,14 +219,6 @@ namespace csharp_biblioteca
             string cognome = Console.ReadLine();
 
             List<Prestito> prestitiTrovati = biblioteca.CercaPrestitoConNomeCognome(nome, cognome);
-
-            if (prestitiTrovati.Count > 0)
-            {
-                foreach (Prestito prestito in prestitiTrovati)
-                {
-                    prestito.StampaInfo();
-                }
-            }
         }
         public static void CercaDocumento(Biblioteca biblioteca, Utente utenteLogato)
         {
