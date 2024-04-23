@@ -52,16 +52,18 @@ namespace csharp_biblioteca
         public void AddUtente(Utente utente) => utenti.Add(utente);
 
         //public void AddDocumento(Documento documento) => documenti.Add(documento);
-        public void AddDocumento(Documento documento) 
+        public bool AddDocumento(Documento documento) 
         {
             if (!Documenti.ContainsKey(documento.Codice))
             {
                 Documenti.Add(documento.Codice, documento);
                 Console.WriteLine($"Documento aggiunto con successo: {documento.Titolo}");
+                return true;
             }
             else
             {
                 Console.WriteLine($"Il documento con il codice {documento.Codice} è già presente nella biblioteca.");
+                return false;
             }
         } 
 
