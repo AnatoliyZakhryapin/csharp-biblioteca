@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ namespace csharp_biblioteca
     {
 
         private List<Utente> utenti = new List<Utente>();
-        private List<Documento> documenti = new List<Documento>();
+        //private List<Documento> documenti = new List<Documento>();
+        private Dictionary<string, Documento> documenti = new Dictionary<string, Documento>();
         private List<Prestito> prestiti = new List<Prestito>();
 
         // -----------
@@ -28,7 +30,12 @@ namespace csharp_biblioteca
             get {  return utenti; } 
         }
 
-        public List<Documento> Documenti
+        //public List<Documento> Documenti
+        //{
+        //    get { return documenti; }
+        //}
+
+        public Dictionary<string, Documento> Documenti
         {
             get { return documenti; }
         }
@@ -44,23 +51,47 @@ namespace csharp_biblioteca
 
         public void AddUtente(Utente utente) => utenti.Add(utente);
 
-        public void AddDocumento(Documento documento) => documenti.Add(documento);
+        //public void AddDocumento(Documento documento) => documenti.Add(documento);
+        public void AddDocumento(Documento documento) 
+        {
+            if (!Documenti.ContainsKey(documento.Codice))
+            {
+                Documenti.Add(documento.Codice, documento);
+                Console.WriteLine($"Documento aggiunto con successo: {documento.Titolo}");
+            }
+            else
+            {
+                Console.WriteLine($"Il documento con il codice {documento.Codice} è già presente nella biblioteca.");
+            }
+        } 
 
         public void AddPrestito(Prestito prestito) => prestiti.Add(prestito);
 
         public Documento CercaDocumento(string codiceOtitolo)
         {
-            foreach (Documento documento in documenti)
+            //foreach (Documento documento in documenti)
+            //{
+            //    if(documento.Codice == codiceOtitolo || documento.Titolo == codiceOtitolo)
+            //    {
+            //        Console.WriteLine($"Documento trovato con \"{(documento.Codice == codiceOtitolo ? "codice" : "titolo")}\" \"{codiceOtitolo}\": {documento.Titolo}");
+            //        documento.StampaInfo();
+            //        return documento;
+            //    }
+            //}
+            //Console.WriteLine("Documento non e stato trovato");
+            //return null;
+            if (Documenti.ContainsKey(codiceOtitolo))
             {
-                if(documento.Codice == codiceOtitolo || documento.Titolo == codiceOtitolo)
-                {
-                    Console.WriteLine($"Documento trovato con \"{(documento.Codice == codiceOtitolo ? "codice" : "titolo")}\" \"{codiceOtitolo}\": {documento.Titolo}");
-                    documento.StampaInfo();
-                    return documento;
-                }
+                Documento documento = Documenti[codiceOtitolo];
+                Console.WriteLine($"Documento trovato con \"{(documento.Codice == codiceOtitolo ? "codice" : "titolo")}\" \"{codiceOtitolo}\": {documento.Titolo}");
+                documento.StampaInfo();
+                return documento;
             }
-            Console.WriteLine("Documento non e stato trovato");
-            return null;
+            else
+            {
+                Console.WriteLine("Documento non trovato");
+                return null;
+            }
         }
 
         public List<Prestito> CercaPrestitoConNomeCognome(string nome, string cognome)
@@ -106,8 +137,14 @@ namespace csharp_biblioteca
             Console.WriteLine();
             Console.WriteLine("STAMPA DELLA LISTA DEI DOCUMENTI DI BIBLIOTECA");
             Console.WriteLine($"Documenti totali: {documenti.Count()}");
-            foreach (Documento documento in documenti)
+            //foreach (Documento documento in documenti)
+            //{
+            //    documento.StampaInfo();
+            //}
+
+            foreach (var key in Documenti.Keys)
             {
+                Documento documento = documenti[key];
                 documento.StampaInfo();
             }
         }
@@ -174,7 +211,8 @@ namespace csharp_biblioteca
 
                 for (int i = 0; i < numPrestitiUtente; i++)
                 {
-                    Documento documento = documenti[new Random().Next(documenti.Count)];
+                    //Documento documento = documenti[new Random().Next(documenti.Count)];
+                    Documento documento = documenti.ElementAt(new Random().Next(documenti.Count)).Value;
 
                     int giorniPrestito = new Random().Next(7, 22);
 

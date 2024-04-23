@@ -9,8 +9,6 @@ namespace csharp_biblioteca
      
             Biblioteca biblioteca = new Biblioteca();
 
-           
-
             biblioteca.CreareFakeDatiUtenti(10);
             biblioteca.CreareFakeDatiLibri(10);
             biblioteca.CreareFakeDatiDvd(10);
@@ -22,8 +20,8 @@ namespace csharp_biblioteca
 
             biblioteca.AddUtente(new Utente("Anatoliy", "Zakhryapin", "anatoliy@gmail.com", "password", "+33333333333"));
 
-            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[10], biblioteca.Documenti[2], DateTime.Now, DateTime.Now.AddDays(14)));
-            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[10], biblioteca.Documenti[1], DateTime.Now, DateTime.Now.AddDays(14)));
+            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[10], biblioteca.Documenti["123"], DateTime.Now, DateTime.Now.AddDays(14)));
+            biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[10], biblioteca.Documenti["678"], DateTime.Now, DateTime.Now.AddDays(14)));
 
             //biblioteca.CercaDocumento("123");
             //biblioteca.StampaListaPrestiti();
@@ -271,7 +269,7 @@ namespace csharp_biblioteca
 
                 if (scelta.ToUpper() == "S")
                 {
-                    documento = biblioteca.Documenti.LastOrDefault();
+                    documento = biblioteca.Documenti.LastOrDefault().Value;
                     if (documento == null)
                     {
                         Console.WriteLine("Nessun documento disponibile per il prestito.");
