@@ -14,7 +14,7 @@ namespace csharp_biblioteca
         // Costruttore
         // -----------
 
-        public Libro(int pagine, string codice, string titolo, int anno, string settore, string scaffale, Person autore) : base(codice, titolo, anno, settore, scaffale, autore)
+        public Libro(int pagine, string codice, string titolo, int anno, string settore, string scaffale, Autore autore) : base(codice, titolo, anno, settore, scaffale, autore)
         { 
            this.pagine = pagine; 
         }

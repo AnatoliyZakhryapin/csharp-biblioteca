@@ -13,20 +13,21 @@ namespace csharp_biblioteca
         private int anno;
         private string settore;
         private string scaffale;
-        private Person autore;
+        private Autore autore;
 
         // -----------
         // Costruttore
         // -----------
 
-        public Documento(string codice, string titolo, int anno, string settore, string scaffale, Person autore)
+        public Documento(string codice, string titolo, int anno, string settore, string scaffale, Autore autore)
         {
             this.codice = codice;
             this.titolo = titolo;
             this.anno = anno;
             this.settore = settore;
             this.scaffale = scaffale;
-            this.autore = autore;
+            //this.autore = autore; //Qua punta sul riferimento 
+            this.autore = new Autore(autore.Nome, autore.Cognome);// creare copia di autore 
         }
 
         // ---------
@@ -63,7 +64,7 @@ namespace csharp_biblioteca
             set { scaffale = value; }
         }
 
-        public Person Autore
+        public Autore Autore
         {
             get { return autore; }
             set { autore = value; }

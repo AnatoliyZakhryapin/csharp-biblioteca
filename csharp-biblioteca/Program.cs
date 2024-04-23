@@ -16,9 +16,9 @@ namespace csharp_biblioteca
             biblioteca.CreareFakeDatiDvd(10);
             biblioteca.CreareFakeDatiPrestiti(5);
 
-            biblioteca.AddDocumento(new Libro(100, "123", "Monte Cristo", 1888, "bla bla", "A1", new Person("nome", "cognome")));
-            biblioteca.AddDocumento(new Libro(200, "345", "Cuori di Atlantide", 2000, "aaaaaa bla bla", "A2", new Person("nome2", "cognome2")));
-            biblioteca.AddDocumento(new Dvd(TimeSpan.FromHours(2), "678", "Il padrino", 1972, "Film", "B456", new Person("Francis Ford", "Coppola")));
+            biblioteca.AddDocumento(new Libro(100, "123", "Monte Cristo", 1888, "bla bla", "A1", new Autore("nome", "cognome")));
+            biblioteca.AddDocumento(new Libro(200, "345", "Cuori di Atlantide", 2000, "aaaaaa bla bla", "A2", new Autore("nome2", "cognome2")));
+            biblioteca.AddDocumento(new Dvd(TimeSpan.FromHours(2), "678", "Il padrino", 1972, "Film", "B456", new Autore("Francis Ford", "Coppola")));
 
             biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[0], biblioteca.Documenti[2], DateTime.Now, DateTime.Now.AddDays(14)));
             biblioteca.AddPrestito(new Prestito(biblioteca.Utenti[0], biblioteca.Documenti[1], DateTime.Now, DateTime.Now.AddDays(14)));
@@ -375,12 +375,12 @@ namespace csharp_biblioteca
 
             if (tipoDocumento == 'L' || tipoDocumento == 'l')
             {
-                nuovoDocumento = new Libro(durataPagine, codice, titolo, anno, settore, scaffale, new Person(autoreNome, autoreCognome));
+                nuovoDocumento = new Libro(durataPagine, codice, titolo, anno, settore, scaffale, new Autore(autoreNome, autoreCognome));
             }
             else if (tipoDocumento == 'D' || tipoDocumento == 'd')
             {
                 TimeSpan durata = TimeSpan.FromHours(durataPagine);
-                nuovoDocumento = new Dvd(durata, codice, titolo, anno, settore, scaffale, new Person(autoreNome, autoreCognome));
+                nuovoDocumento = new Dvd(durata, codice, titolo, anno, settore, scaffale, new Autore(autoreNome, autoreCognome));
             }
             else
             {

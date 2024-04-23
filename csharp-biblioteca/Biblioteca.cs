@@ -147,7 +147,7 @@ namespace csharp_biblioteca
                 string autoreNome = "AutoreNome" + i;
                 string autoreCognome = "AutoreCognome" + i;
 
-                AddDocumento(new Libro(numeroPagine, codice, titolo, anno, settore, scaffale, new Person(autoreNome, autoreCognome)));
+                AddDocumento(new Libro(numeroPagine, codice, titolo, anno, settore, scaffale, new Autore(autoreNome, autoreCognome)));
             }
         }
         public void CreareFakeDatiDvd(int numeroDvd)
@@ -163,7 +163,7 @@ namespace csharp_biblioteca
                 string registaNome = "RegistaNome" + i;
                 string registaCognome = "RegistaCognome" + i;
 
-                AddDocumento(new Dvd(durata, codice, titolo, anno, settore, scaffale, new Person(registaNome, registaCognome)));
+                AddDocumento(new Dvd(durata, codice, titolo, anno, settore, scaffale, new Autore(registaNome, registaCognome)));
             }
         }
         public void CreareFakeDatiPrestiti(int maxNumeroPrestitiUtente)
